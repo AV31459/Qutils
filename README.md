@@ -43,7 +43,7 @@ python -m venv venv
 source venv/Scripts/activate
 pip install -r requirements.txt
 `````````
-или просто 
+ну или просто скачать себе два файла (cleaner.py/merger.py) и обновить pandas (*для тех, кто понимает, что он делает :)*)
 `````````
 pip install pandas -U
 `````````
