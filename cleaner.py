@@ -124,6 +124,11 @@ def process_dataframe(df: pd.DataFrame, args: argparse.Namespace
     df.columns = list(map(lambda x: re.sub(r'[<>]', '', x).lower(),
                           df.columns))
 
+    # Coercing price colums to float dtype
+    for column in [col for col in df.columns
+                   if col in ('open', 'high', 'low', 'close',)]:
+        df[column] = df[column].astype(float)
+
     # Checking if period is unique
     if not len(df['per'].unique()) == 1:
         raise Exception(f"Period data is not unique: {df['per'].unique()}")
